@@ -1,0 +1,153 @@
+<!-- LOIC CSS MDR -->
+html
+{
+    font-family: Arial;
+}
+
+body {
+    background-color: #ecf0f1;
+}
+
+#enchere {
+	-moz-box-shadow: 0px 0px 0px 2px #e4e6eb;
+	-webkit-box-shadow: 0px 0px 0px 2px #e4e6eb;
+	box-shadow: 0px 0px 0px 2px #e4e6eb;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #babdc2), color-stop(1, #7d7d7d));
+	background:-moz-linear-gradient(top, #babdc2 5%, #7d7d7d 100%);
+	background:-webkit-linear-gradient(top, #babdc2 5%, #7d7d7d 100%);
+	background:-o-linear-gradient(top, #babdc2 5%, #7d7d7d 100%);
+	background:-ms-linear-gradient(top, #babdc2 5%, #7d7d7d 100%);
+	background:linear-gradient(to bottom, #babdc2 5%, #7d7d7d 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#babdc2', endColorstr='#7d7d7d',GradientType=0);
+	background-color:#babdc2;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #78787a;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #c5c6c9;
+}
+#enchere:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7d7d7d), color-stop(1, #babdc2));
+	background:-moz-linear-gradient(top, #7d7d7d 5%, #babdc2 100%);
+	background:-webkit-linear-gradient(top, #7d7d7d 5%, #babdc2 100%);
+	background:-o-linear-gradient(top, #7d7d7d 5%, #babdc2 100%);
+	background:-ms-linear-gradient(top, #7d7d7d 5%, #babdc2 100%);
+	background:linear-gradient(to bottom, #7d7d7d 5%, #babdc2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d7d7d', endColorstr='#babdc2',GradientType=0);
+	background-color:#7d7d7d;
+}
+#enchere:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+#objet
+{
+    border: 1px black dotted;
+    border-radius: 1px;
+    width : 70%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+#img_objet
+{
+	vertical-align:middle;
+
+	width: 150px;
+	height: autoé;
+	
+}
+
+#bloc_img
+{
+	width: auto;
+	height: auto;
+	text-align: center;
+	float: left;
+	overflow: hidden;
+}
+
+#objet p
+{
+    margin-left: 4px;
+}
+
+#upload
+{
+    float: right;
+}
+
+#accueil
+{
+    text-align: center;
+}
+
+#prix_objet
+{
+    text-align: right;
+}
+
+#prix_actuel
+{
+    text-align: right;
+}
+
+#vendeur_objet
+{
+    float: left;
+}
+
+#bas-de-page
+{
+    text-align: center;
+}
+
+#contact
+{
+    margin-right: 5%;
+}
+
+#copyright
+{
+    margin-left: 5%;
+}
+
+#enchere
+{
+    float: right;
+}
+
+#nom_objet
+{
+	padding-left: 20%;
+}
+
+#desc
+{
+	text-align: justify;
+	padding-left: 20%;
+	margin-right: 10%;
+	bottom:0;
+	margin-bottom:10px;
+}
+
+#desc_objet
+{
+	text-align: justify;
+	padding-left: 20%;
+	margin-right: 10%;
+	bottom:0;
+}
+<!-- LOIC CSS MDR -->
