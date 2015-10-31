@@ -63,19 +63,14 @@ body {
 
 #img_objet
 {
-	vertical-align:middle;
-
-	width: 150px;
-	height: autoé;
-	
+	width: 200px;
+	height: auto;
 }
 
 #bloc_img
 {
 	width: auto;
 	height: auto;
-	text-align: center;
-	float: left;
 	overflow: hidden;
 }
 
@@ -96,11 +91,13 @@ body {
 
 #prix_objet
 {
-    text-align: right;
+    float: right;
 }
 
 #prix_actuel
 {
+
+    float: right;
     text-align: right;
 }
 
@@ -131,23 +128,24 @@ body {
 
 #nom_objet
 {
-	padding-left: 20%;
+	padding-left: 10%;
 }
 
 #desc
 {
 	text-align: justify;
-	padding-left: 20%;
-	margin-right: 10%;
+	padding-left: 2%;
+	margin-right: 5%;
+    top:0;
 	bottom:0;
-	margin-bottom:10px;
+	margin-bottom:5px;
 }
 
 #desc_objet
 {
 	text-align: justify;
-	padding-left: 20%;
-	margin-right: 10%;
+	padding-left: 2%;
+	margin-right: 5%;
 	bottom:0;
 }
 <!-- LOIC CSS MDR -->

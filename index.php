@@ -4,13 +4,15 @@ if(session_status()!=PHP_SESSION_ACTIVE)
 if(!isset($_SESSION["nom"]))
 {
     echo "<form id=\"mise_en_vente\" action=\"identification.php\" method=\"post\">";
+    echo "<input type=\"submit\" id=\"enchere\" value=\"S'identifier\">";
     $_SESSION["dir"] = "index.php";
 }
 else
 {
-    echo "<form action=\"upload/upload.php\" method=\"post\">";
+    echo "<form id=\"mise_en_vente\" action=\"upload/upload.php\" method=\"post\">";
+    echo "<input type=\"submit\" id=\"enchere\" value=\"Mettre en vente !\">";
 }
-echo "<input type=\"submit\" id=\"enchere\" value=\"Mettre en vente !\">";
+
 echo "</form>";
 include "header.html";
 try{
@@ -21,36 +23,38 @@ try{
     while ($row = $result->fetch(PDO::FETCH_LAZY))
     {
         if(strtotime($row["date_affichage"])<strtotime(date('d-m-Y')) && strtotime($row["date_cloture"])>strtotime(date('d-m-Y'))) {
-            echo "<div id=\"objet\">";
-            echo '<p id="bloc_img"><img id="img_objet" src="photos/'.$row["chemin_photo"].'"></p>';
-            echo "<h1 id=\"nom_objet\">" . ucfirst($row["nom"]) . "</h1>";
-            echo "<p id=\"desc\">Description :</p>";
-            echo "<p id=\"desc_objet\">". $row["description"] . "</p>";
-            if ($row["prix_enchereur"] > $row["prix_min"]) {
-                echo "<p id=\"prix_objet\">Prix de base : " . $row["prix_min"] . "€</p>";
-                echo "<p id=\"prix_actuel\">Prix actuel : " . $row["prix_enchereur"] . "€</p>";
-            } else {
-                echo "<p id=\"prix_objet\">Prix de base : " . $row["prix_min"] . "€</p>";
-                echo "<p id=\"prix_objet\">(Aucune enchere n'a encore étè faite :) ENJOY</p>";
-            }
+
+
+            echo "<table id=\"objet\">";
+            echo "<tr><td rowspan='4'><img id=\"img_objet\" src=\"photos/".$row["chemin_photo"]."\"></td></tr>";
+            echo "<tr><td><h1  id=\"nom_objet\">" . ucfirst($row["nom"]) . "</h1></td></tr>";
+            echo "<tr><td id=\"desc\">Description :</td></tr>";
+            echo "<tr><td><p id=\"desc_objet\">". $row["description"] . "</p></td></tr>";
+
             $pdo2 = new PDO($dsn, $user, $pass);
             $query2 = "SELECT nom,prenom from utilisateur where ID=" . $row["ID_vendeur"];
             $result2 = $pdo2->query($query2);
             while ($row2 = $result2->fetch(PDO::FETCH_LAZY)) {
-                echo "<p id=\"vendeur_objet\">Vendeur : " . $row2[0] . " " . $row2[1] . "</p>";
+                echo "<tr><td rowspan='3'><p id=\"vendeur_objet\">Vendeur : " . $row2[0] . " " . $row2[1] . "</p></td>";
             }
+            echo "<td><p id=\"prix_objet\">Prix de base : " . $row["prix_min"] . "€</p></td></tr>";
+            if ($row["prix_enchereur"] > $row["prix_min"]) {
+                echo "<tr><td><p id=\"prix_actuel\">Prix actuel : " . $row["prix_enchereur"] . "€</p></td></tr>";
+            } else {
+                echo "<tr><td><p id=\"prix_objet\">(Aucune enchere n'a encore étè faite :) ENJOY</p></td></tr>";
+            }
+
+            echo "<tr><td>";
+
             if (session_status() != PHP_SESSION_ACTIVE)
                 session_start();
-            if (!isset($_SESSION["nom"])) {
-                echo "<form action=\"identification.php\" method=\"post\">";
-                $_SESSION["dir"] = "index.php";
-            } else {
+            if (isset($_SESSION["nom"])) {
                 echo "<form action=\"encherir.php\" method=\"post\">";
+                echo "<input type=\"submit\" id=\"enchere\" value=\"Encherir !\">";
             }
-            echo "<input type=\"submit\" id=\"enchere\" value=\"Encherir !\">";
             echo "<input type=\"hidden\" name=\"obj\" value=\"" . $row["nom"] . "\">";
-            echo "</form>
-                </div> <br>";
+            echo "</form></td></tr>
+                </table> <br>";
         }
     }
 }catch (PDROExeption $e)

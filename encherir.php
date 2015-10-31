@@ -10,31 +10,26 @@ $result = $pdo->query($query);
 
 while ($row = $result->fetch(PDO::FETCH_LAZY))
 {
-    echo "<div id=\"objet\">";
-    echo "<img id=\"img_objet\" width=200 heigth=300 src=photos/".$row["chemin_photo"].">";
-    echo "<p id=\"nom_objet\">".ucfirst($row["nom"])."</p>";
-    echo "<p id=\"desc_objet\">Description : ".$row["description"]."</p>";
-    if($row["prix_enchereur"] > $row["prix_min"])
-    {
-        echo "<p id=\"prix_objet\">Prix de base : ".$row["prix_min"]."€</p>";
-        echo "<p id=\"prix_actuel\">Prix actuel : ".$row["prix_enchereur"]."€</p>";
-        $_SESSION["Prix"]=$row["prix_enchereur"];
-    }
-    else
-    {
-        echo "<p id=\"prix_objet\">Prix de base : ".$row["prix_min"]."€</p>";
-        echo "<p id=\"prix_objet\">(Aucune enchere n'a encore étè faite :) ENJOY</p>";
-        $_SESSION["Prix"]=$row["prix_min"];
-    }
+    echo "<br>";
+    echo "<table id=\"objet\">";
+    echo "<tr><td rowspan='4'><img id=\"img_objet\" src=\"photos/".$row["chemin_photo"]."\"></td></tr>";
+    echo "<tr><td><h1  id=\"nom_objet\">" . ucfirst($row["nom"]) . "</h1></td></tr>";
+    echo "<tr><td id=\"desc\">Description :</td></tr>";
+    echo "<tr><td><p id=\"desc_objet\">". $row["description"] . "</p></td></tr>";
 
-    $pdo2 = new PDO($dsn,$user,$pass);
-    $query2 = "SELECT nom,prenom from utilisateur where ID=".$row["ID_vendeur"];
+    $pdo2 = new PDO($dsn, $user, $pass);
+    $query2 = "SELECT nom,prenom from utilisateur where ID=" . $row["ID_vendeur"];
     $result2 = $pdo2->query($query2);
-    while($row2 = $result2->fetch(PDO::FETCH_LAZY))
-    {
-        echo "<p id=\"vendeur_objet\">Vendeur : " . $row2[0] ." ". $row2[1] . "</p>";
+    while ($row2 = $result2->fetch(PDO::FETCH_LAZY)) {
+        echo "<tr><td rowspan='3'><p id=\"vendeur_objet\">Vendeur : " . $row2[0] . " " . $row2[1] . "</p></td>";
     }
-    echo "</div> <br>";
+    echo "<td><p id=\"prix_objet\">Prix de base : " . $row["prix_min"] . "€</p></td></tr>";
+    if ($row["prix_enchereur"] > $row["prix_min"]) {
+        echo "<tr><td><p id=\"prix_actuel\">Prix actuel : " . $row["prix_enchereur"] . "€</p></td></tr>";
+    } else {
+        echo "<tr><td><p id=\"prix_objet\">(Aucune enchere n'a encore étè faite :) ENJOY</p></td></tr>";
+    }
+    echo "</table> <br>";
 }
 $query = "SELECT ID from utilisateur where nom=\"".$_SESSION["nom"]."\" AND prenom=\"".$_SESSION["prenom"]."\"";
 $result = $pdo->query($query);

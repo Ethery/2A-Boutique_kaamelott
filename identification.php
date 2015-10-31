@@ -2,7 +2,7 @@
 session_start();
 include "header.html" ?>
     <form action="ident.php" method="post">
-        <h1>Informations du vendeur</h1>
+        <h1>Informations :)</h1>
         Nom :
         <br>
         <input type="text" name="nom">
