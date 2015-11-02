@@ -30,17 +30,22 @@ while ($row = $result->fetch(PDO::FETCH_LAZY))
         echo "<tr><td><p id=\"prix_objet\">(Aucune enchere n'a encore étè faite :) ENJOY</p></td></tr>";
     }
     echo "</table> <br>";
+    $GLOBALS["prix"]=$row["prix_min"];
 }
+
+
 $query = "SELECT ID from utilisateur where nom=\"".$_SESSION["nom"]."\" AND prenom=\"".$_SESSION["prenom"]."\"";
 $result = $pdo->query($query);
 $row=$result->fetch(PDO::FETCH_LAZY);
+
 ?>
 
 
 
-    <form action="set_enchere.php" method="post" id="encherir">
+    <form class="up" action="set_enchere.php" method="post" id="encherir">
+
         <p>Nouveau montant pour l'objet :</p>
-        <input type="number" name="montant" id="montant" min="<?php echo $_SESSION["Prix"]; ?>">
+        <input type="number" name="montant" id="montant" min="<?php echo $GLOBALS["prix"]; ?>">
         <input type="hidden" name="user" value="<?php echo $row["ID"]; ?>">
         <input type="hidden" name="objet" value="<?php echo $_POST["obj"]; ?>">
         <input type="submit" id="submit" value="Encherir !">

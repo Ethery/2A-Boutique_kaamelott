@@ -5,7 +5,20 @@ html
 }
 
 body {
-    background-color: #ecf0f1;
+    background-color : #ffffff;
+	background-image: url("Kaamelott_Logo.jpg"), url("Epee_Kaamelott.jpg");
+    background-repeat: no-repeat, no-repeat;
+	background-size: 300px 90px, cover;
+	background-position: top center, top left;
+	background-attachment: scroll, fixed;
+	/*background: url("Kaamelott_Logo.jpg") center top no-repeat, url("Epee_Kaamelott.jpg") left top no-repeat;
+	background-size: 300px 90px, 2000px 1200px;
+	background-attachment: scroll, fixed;*/
+}
+
+@font-face {
+    font-family: 'Folkard'; /*a name to be used later*/
+    src: url('folkard_.ttf'); /*URL to font*/
 }
 
 #enchere {
@@ -58,7 +71,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #A67676;
 }
 
 #img_objet
@@ -86,7 +99,21 @@ body {
 
 #accueil
 {
+	/*background-image: url("Kaamelott_Logo.jpg");
+    background-repeat: no-repeat;
+	background-size: 300px 90px;
+	background-position: top center;*/
+	font-family: folkard;
+	color: brown;
     text-align: center;
+	margin-top: 30px;
+}
+
+#logo
+{
+	display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
 #prix_objet
@@ -109,6 +136,8 @@ body {
 #bas-de-page
 {
     text-align: center;
+    font-family:fantasy;
+    color: brown;
 }
 
 #contact
@@ -148,4 +177,16 @@ body {
 	margin-right: 5%;
 	bottom:0;
 }
+
+.up
+{
+    font-weight: bold;
+    color: brown;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	
+}
+
 <!-- LOIC CSS MDR -->

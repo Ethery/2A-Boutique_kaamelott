@@ -3,23 +3,19 @@ session_start();
 include "header.html" ?>
     <form action="ident.php" method="post">
         <h1>Informations :)</h1>
-        Nom :
-        <br>
+        <p>Nom :</p>
         <input type="text" name="nom">
         <br>
         <br>
-        Prenom :
-        <br>
+        <p>Prenom :</p>
         <input type="text" name="prenom">
         <br>
         <br>
-        Adresse :
-        <br>
+        <p>Adresse :</p>
         <input type="text" name="adresse">
         <br>
         <br>
-        Telephone :
-        <br>
+        <p>Telephone :</p>
         <input type="tel" name="tel">
         <br>
         <br>

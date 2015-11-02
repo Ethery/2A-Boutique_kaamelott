@@ -35,7 +35,7 @@ if ($upload1)
         $conn->exec($sql);
         echo "New record created successfully";
 
-        header('Location: ../index.php');
+        header('Location: /2A - TP boutique kaamelott/index.php');
     }
     catch(PDOException $e)
     {
@@ -48,5 +48,5 @@ else
 {
     echo "Erreur !<br />";
 }
-include "../info.php";
+include "/2A - TP boutique kaamelott/info.php";
 ?>
