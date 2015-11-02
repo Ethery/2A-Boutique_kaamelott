@@ -45,7 +45,7 @@ $row=$result->fetch(PDO::FETCH_LAZY);
     <form class="up" action="set_enchere.php" method="post" id="encherir">
 
         <p>Nouveau montant pour l'objet :</p>
-        <input type="number" name="montant" id="montant" min="<?php echo $GLOBALS["prix"]; ?>">
+        <input type="number" name="montant" id="montant" min="<?php echo $GLOBALS["prix"]+1; ?>">
         <input type="hidden" name="user" value="<?php echo $row["ID"]; ?>">
         <input type="hidden" name="objet" value="<?php echo $_POST["obj"]; ?>">
         <input type="submit" id="submit" value="Encherir !">
