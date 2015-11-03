@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "header.html" ?>
-    <form action="ident.php" method="post">
+    <form class="up" action="ident.php" method="post">
         <h1>Informations :)</h1>
         <p>Nom :</p>
         <input type="text" name="nom">
